@@ -31,14 +31,7 @@ Given a grid size, a target room count, and a few stylistic knobs, the tool buil
 
 ## Design Overview
 
-The codebase is split cleanly into four parts so the generator can be reused outside the GUI if needed:
-
-- **Generation logic** (`DungeonGenerator`) — Pure algorithm, no Qt dependency. Builds a self-avoiding critical path via DFS, grows weighted branches off it, assigns room types, and computes metrics. Works off a normalized `GeneratorConfig` dataclass and emits a `Dungeon` dataclass.
-- **Custom-painted canvas** (`DungeonCanvas`) — A `QWidget` subclass that overrides `paintEvent` to draw the grid, edges, and rooms directly with `QPainter`. Hit testing is done by storing per-room rectangles each paint and matching them against `mousePressEvent` coordinates. Emits a `room_clicked(int)` signal.
-- **Sidebar** (`ControlsPanel`) — All form inputs (spin boxes, sliders, combo boxes, checkboxes), action buttons, and the metrics/validation readout. Exposes its actions as Qt signals (`generate_requested`, `export_json_requested`, etc.) rather than wiring directly to the main window, which keeps it independently testable.
-- **Coordinator** (`DungeonToolApp`, a `QMainWindow`) — Owns the controls panel and the preview pane, wires their signals together, and handles file I/O (config save/load, dungeon JSON export) through `QFileDialog`.
-
-The split means `DungeonGenerator` could be driven from a CLI, a web service, or a test suite without touching any of the Qt code.
+Architectural documentation and algorithm explanation can be found on the [wiki](https://github.com/nyanSpark/Procedural-Dungeon-Graph/wiki/Documentation).
 
 ## Requirements
 
