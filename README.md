@@ -1,7 +1,7 @@
 # Procedural Dungeon / Encounter Layout Tool
-
-<img width="1273" height="912" alt="procedural_tool" src="https://github.com/user-attachments/assets/9562a0b6-db61-44b4-a020-194e9af564e6" />
-
+<p align="center">
+<img width="750" height="540" alt="dungeontool" src="https://github.com/user-attachments/assets/bc52b901-c456-4f56-a311-94fec953c9be" />
+</p>
 A desktop application for procedurally generating, validating, and visualizing 2D dungeon layouts on a grid. Built with Python and Qt (PySide6), it is intended as a level-design aid for tabletop campaigns, roguelike prototypes, and game-jam projects where you need a defensible dungeon shape fast — start room, boss room, a critical path between them, and side content scattered around the periphery.
 
 ## Table of Contents
